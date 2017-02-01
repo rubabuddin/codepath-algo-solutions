@@ -1,52 +1,4 @@
-/*
-Swap List Nodes in Pairs
-
-Given a linked list, swap every two adjacent nodes and return its head.
-
-For example,
-Given 1->2->3->4, you should return the list as 2->1->4->3.
-
-Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.
-
-*/
-
-
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     public int val;
- *     public ListNode next;
- *     ListNode(int x) { val = x; next = null; }
- * }
- */
-public class Solution {
-	public ListNode swapPairs(ListNode a) {
-	//a = head
-	
-	if(a == null || a.next == null)
-	    return a;
-	
-	ListNode curr = new ListNode(0);
-	curr.next = a;
-	ListNode prev = curr;
-	    
-	while(prev.next != null && prev.next.next != null){
-	    
-	    ListNode n1 = prev;
-	    prev = prev.next;
-	    n1.next = prev.next;
-	    
-	    ListNode n2 = prev.next.next;
-	    prev.next.next = prev;
-	    prev.next = n2;
-	}
-	
-	return curr.next;
-	}
-}
-
-/**
-Reverse Link List II
+/*	
 Reverse a linked list from position m to n. Do it in-place and in one-pass.
 
 For example:
@@ -59,18 +11,6 @@ Given m, n satisfy the following condition:
 1 = m = n = length of list. Note 2:
 Usually the version often seen in the interviews is reversing the whole linked list which is obviously an easier version of this question. 
 
-
- * Definition for singly-linked list.
- * class ListNode {
- *     public int val;
- *     public ListNode next;
- *     ListNode(int x) { val = x; next = null; }
- * }
- */
-public class Solution {
-	public ListNode reverseBetween(ListNode a, int m, int n) {
-	    
-/*	
 //previous solution not passing all testcases
 ListNode head = a;	    
 	if(head==null||head.next==null)
